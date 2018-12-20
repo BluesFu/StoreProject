@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>搜索结果</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<style type="text/css">
+.booklist{
+	text-align: center;  
+    width: 100%; 
+	height:360px;
+    margin: 0px;
+    padding: 10px 0 10px 40px; 
+}
+#bookul{ 
+   list-style:none;
+   float:left
+}
+#bookul li{
+	float:left;
+	width: 161px;
+    height: 185px;
+	display:inline; margin:auto 10px;
+}
+.divbookpic { 
+    width: 131px;
+    height: 135px;
+    border: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+    margin-bottom: 8px;
+    overflow: hidden;
+    display:inline;
+    position: relative;
+    text-align: center;
+    vertical-align: middle; 
+}
+.divlisttitle {
+    line-height: 120%;
+    text-align: left; 
+	display:inline;
+	float:left;
+	margin-left:12px;
+	margin-top:3px;
+}
+#supperSearch{ 
+width:100%; 
+height:30px; 
+margin:5px; 
+float:left; 
+padding:5px;
+}
+.search-btn{
+	background-image:url(images/serchbutton.gif); background-repeat:round;
+	width:60px; 
+	height:22px; 
+	border:0px;
+}
+</style>
+</head>
+<body>
+<div id="header" class="wrap">
+	<div id="logo"> 
+	   传习教育网上书城
+	</div>
+    <div style="width:400px; height:50px; float:right; position:absolute; left:60%; top:2px; line-height:50px">
+	    <img src="images/cart.gif" style="margin-bottom:-4px" width="26" height="23">
+		  欢迎您： madan &nbsp;
+                  <a href="myAccount.jsp">我的帐户</a>
+				| <a href="productCategory.jsp">商品分类</a> 
+				| <a href="#">用户注册</a>  
+		</div>
+	<div id="navbar">
+		<div class="userMenu">
+			<ul>
+				<li class="current"><a href="index.html">User首页</a></li>
+				<li><a href="orderlist.html">我的订单</a></li>
+				<li><a href="shopping.html">购物车</a></li>
+				<li><a href="logout.do" onclick="javascript:return confirm_logout()">注销</a></li>
+			</ul>
+		</div>
+		<form method="get" name="search" action="">
+			搜索：<input class="input-text" type="text" name="keywords" /><input class="input-btn" type="submit" name="submit" value="" />
+		</form>
+	</div>
+</div>
+<div id="content" class="wrap"> 
+	<div>	 
+        <h1>搜索结果</h1>
+        <hr />
+        <div id="supperSearch">
+        <form method="get" name="search" action="">
+        <table border="0" cellspacing="0">
+           <tr>
+			<td >书名：</td>
+			<td><input class="input-text" type="text" name="bookName" /><span id="bktip"> </span></td>
+			<td >&nbsp;&nbsp; 价格：</td>
+			<td><input class="input-text" type="text" name="price1" size="4" maxlength="4" /><span> </span></td>
+			<td width="30px">&nbsp;：</td>
+			<td><input class="input-text" type="text" name="price2" size="4" maxlength="4" /><span> </span></td> 
+            <td > &nbsp;&nbsp;类别：</td>
+			<td> 
+             <select name="">
+               <option value="">--全部--</option>
+               <option value="计算机">计算机</option>
+               <option value="文学">文学</option>
+               <option value="原版">原版</option>
+               <option value="科技">科技</option>
+               <option value="小说">小说</option>
+               <option value="励志">励志</option>
+               <option value="生活百科">生活百科</option>
+               <option value="少儿">少儿</option>
+               <option value="生活">生活</option>
+             </select>
+            <span> </span>
+            </td>
+			<td>&nbsp;&nbsp;</td>
+			 <td class="button">
+              <input class="search-btn" type="submit" name="submit" value=" " />
+             </td>
+            <td>
+		</tr> 
+        </table>
+        </form>
+        </div>
+        <h1>全部商品</h1>&nbsp;&nbsp;&nbsp;&nbsp;共18种商品
+        <hr />
+        <div style="margin-top:20px; margin-bottom:5px">
+            <img src="images/productlist.gif" width="100%" height="38" />
+        </div>
+    </div>
+    <div class="booklist">
+    <ul id="bookul">
+      <li>
+           <div class="divbookpic"> 
+                <a href="findProductById?id=26ddd0c6-d7f2-4a83-b01b-286bb8c38420">
+               <img src="images/book/bba5ddf2-2a56-4a88-9d1b-abc8e0202ec9.png" width="125" height="139" border="0" /> 
+                </a> 
+        </div>
+            <div class="divlisttitle">
+                <a href="findProductById?id=26ddd0c6-d7f2-4a83-b01b-286bb8c38420">书名： .net设计规范<br />售价：￥50.0 </a>
+            </div>
+       </li>
+
+     <li>
+        <div class="divbookpic"> 
+                <a href="findProductById?id=3a0196b2-71c1-4d4d-a4e8-d1f875096f00">
+                    <img src="images/book/0270eba2-2b48-48df-956b-0341204384d9.png" width="125" height="139" border="0" /> 
+                </a> 
+        </div>
+        <div class="divlisttitle">
+            <a href="findProductById?id=3a0196b2-71c1-4d4d-a4e8-d1f875096f00">书名： 网管员必备宝典<br />售价：￥20.0 </a>
+        </div>
+    </li>
+
+     <li>
+        <div class="divbookpic"> 
+                <a href="findProductById?id=3cdd01d2-95d4-4077-b512-ff4c3b340d6b">
+                    <img src="images/book/a2da626c-c72d-4972-83de-cf48405c5563.png" width="125" height="139" border="0" /> 
+                </a> 
+        </div>
+        <div class="divlisttitle">
+            <a href="findProductById?id=3cdd01d2-95d4-4077-b512-ff4c3b340d6b">书名： 学会宽容<br />售价：￥25.0 </a>
+        </div>
+    </li>
+
+     <li>
+        <div class="divbookpic"> 
+                <a href="findProductById?id=4dbac6bb-ac2a-4ea0-a62f-ea5a2fc2b3c2">
+                    <img src="images/book/c4ab442f-95c7-4d6f-a57e-3eb7dc6b83c4.png" width="125" height="139" border="0" /> 
+                </a> 
+        </div>
+        <div class="divlisttitle">
+            <a href="findProductById?id=4dbac6bb-ac2a-4ea0-a62f-ea5a2fc2b3c2">书名： 杜拉拉升职记<br />售价：￥54.0 </a>
+        </div>
+    </li>
+     <li>
+           <div class="divbookpic"> 
+                <a href="findProductById?id=26ddd0c6-d7f2-4a83-b01b-286bb8c38420">
+               <img src="images/book/bba5ddf2-2a56-4a88-9d1b-abc8e0202ec9.png" width="125" height="139" border="0" /> 
+                </a> 
+        </div>
+            <div class="divlisttitle">
+                <a href="findProductById?id=26ddd0c6-d7f2-4a83-b01b-286bb8c38420">书名： .net设计规范<br />售价：￥50.0 </a>
+            </div>
+       </li>
+        <li>
+           <div class="divbookpic"> 
+                <a href="findProductById?id=26ddd0c6-d7f2-4a83-b01b-286bb8c38420">
+               <img src="images/book/2105fbe5-400f-4193-a7db-d7ebac389550.png" width="125" height="139" border="0" /> 
+                </a> 
+        </div>
+            <div class="divlisttitle">
+                <a href="findProductById?id=26ddd0c6-d7f2-4a83-b01b-286bb8c38420">书名：中国国家地理<br />售价：￥50.0 </a>
+            </div>
+       </li>
+
+     <li>
+        <div class="divbookpic"> 
+                <a href="findProductById?id=3a0196b2-71c1-4d4d-a4e8-d1f875096f00">
+                    <img src="images/book/5394df32-ed6e-4203-b9c0-fc175cfc187e.png" width="125" height="139" border="0" /> 
+                </a> 
+        </div>
+        <div class="divlisttitle">
+            <a href="findProductById?id=3a0196b2-71c1-4d4d-a4e8-d1f875096f00">书名：培养女孩<br />售价：￥20.0 </a>
+        </div>
+    </li>
+
+     <li>
+        <div class="divbookpic"> 
+                <a href="findProductById?id=3cdd01d2-95d4-4077-b512-ff4c3b340d6b">
+                    <img src="images/book/81967f4f-0a39-4b03-8ecc-053365a35605.png" width="125" height="139" border="0" /> 
+                </a> 
+        </div>
+        <div class="divlisttitle">
+            <a href="findProductById?id=3cdd01d2-95d4-4077-b512-ff4c3b340d6b">书名：雪中悍刀行<br />售价：￥25.0 </a>
+        </div>
+    </li>
+
+     <li>
+        <div class="divbookpic"> 
+                <a href="findProductById?id=4dbac6bb-ac2a-4ea0-a62f-ea5a2fc2b3c2">
+                    <img src="images/book/792116e7-6d83-4be4-b3e5-4dd11b0b4565.png" width="125" height="139" border="0" /> 
+                </a> 
+        </div>
+        <div class="divlisttitle">
+            <a href="findProductById?id=4dbac6bb-ac2a-4ea0-a62f-ea5a2fc2b3c2">书名：别做正常的傻瓜<br />售价：￥54.0 </a>
+        </div>
+    </li>
+     <li>
+           <div class="divbookpic"> 
+                <a href="findProductById?id=26ddd0c6-d7f2-4a83-b01b-286bb8c38420">
+               <img src="images/book/acc9d557-f8c9-426b-9aec-50a5a7cf3960.png" width="125" height="139" border="0" /> 
+                </a> 
+        </div>
+            <div class="divlisttitle">
+                <a href="findProductById?id=26ddd0c6-d7f2-4a83-b01b-286bb8c38420">书名：赢在影响力<br />售价：￥50.0 </a>
+            </div>
+       </li>
+    </ul>
+ </div>
+  <div class="page-spliter">
+        <a href="#">&lt;</a>
+        <a href="#">首页</a>
+        <span class="current">1</span>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <span>...</span>
+        <a href="#">尾页</a>
+        <a href="#">&gt;</a>
+	   </div> 
+	</div>
+<div id="footer" class="wrap">
+	传习教育网上书城 &copy; 版权所有 
+</div>
+</body>
+</html>

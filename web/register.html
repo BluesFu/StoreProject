@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div id="header" class="wrap">
+	<div id="logo"> 
+	   传习教育网上书城
+	</div>
+    <div style="width:380px; height:50px; float:right; position:absolute; left:60%; top:2px; line-height:50px">
+	    <img src="images/cart.gif" style="margin-bottom:-4px" width="26" height="23">
+		  欢迎您： visited &nbsp;
+                  <a href="myAccount.jsp">我的帐户</a>
+				| <a href="productCategory.jsp">商品分类</a> 
+				| <a href="#">帮助中心</a>  
+		</div>
+	<div id="navbar">
+		<form method="get" name="search" action="">
+			搜索：<input class="input-text" type="text" name="keywords" /><input class="input-btn" type="submit" name="submit" value="" />
+		</form>
+	</div>
+</div>
+<div id="register">
+	<div class="title">
+		<h2>欢迎注册传习教育网上书城</h2>
+	</div>
+	<div class="steps">
+		<ul class="clearfix">
+			<li class="current">1.填写注册信息</li>
+			<li class="unpass">2.注册成功</li>
+		</ul>
+	</div>
+	<form method="post" action="doRegister.jsp"
+    >
+		<dl>
+			<dt>用 户 名：</dt>
+			<dd><input class="input-text" type="text" name="userName" id="uid" />
+            <span id="utip"></span></dd>
+			<dt>密　　码：</dt>
+			<dd><input class="input-text" type="password" name="passWord" id="pwdId"/><span id="ptip"></span></dd>
+			<dt>确认密码：</dt>
+			<dd><input class="input-text" type="password" name="rePassWord" id="repid" /><span id="retip"> </span></dd>
+			<dt>Email地址：</dt>
+			<dd>
+            <input id="eid" class="input-text" type="text" name="email" /><span id="etip"></span></dd>
+			<dt></dt>
+			<dd class="button"><input class="input-reg" type="submit" name="register" value="" /></dd>
+		</dl>
+	</form>
+</div>
+<div id="footer" class="wrap">
+	传习教育网上书城 &copy; 版权所有
+
+</div>
+<script language="JavaScript">
+	function checkLogin() {
+        var name = document.getElementById("uid").value;
+        if (name == "") {
+            document.getElementById("utip").innerHTML = "请输入用户名！";
+            return false;
+        }
+        var NowNum = document.getElementById("pwdId").value.length;
+        var passWorda = document.getElementById("pwdId").value;
+        if (NowNum < 4 || NowNum > 16) {
+            document.getElementById("ptid").innerHTML = "请输入`4-16位密码！"
+            return false;
+        }
+
+        var NowNumb=document.getElementById("repid").value.length;
+        var passWordb=document.getElementById("repid").values;
+        if (passWorda!=passwordb){
+            document.getElementById("retip").innerHTML="你输入的两次密码不一致！";
+            return false;
+		}
+
+		var reg=new RegExp("^[a-z0-9]+(._\\-)*[a-z0-9]*@([a-z0-9]+[-a-z0-9]+.){1,63}[a-z0-9]+$");
+        var obj=document.getElementById("eid");
+        if(!reg.test(obj.value)){
+            document.getElementById("etip").innerHTML="您输入的邮箱格式有误！";
+            return false;
+		}
+		return true;
+    }
+</script>
+
+</body>
+</html>
