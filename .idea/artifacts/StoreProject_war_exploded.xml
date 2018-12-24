@@ -7,6 +7,14 @@
         <element id="directory" name="classes">
           <element id="module-output" name="StoreProject" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="commons-dbutils:commons-dbutils:1.7" />
+          <element id="library" level="project" name="mysql:mysql-connector-java:8.0.13" />
+          <element id="library" level="project" name="log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="c3p0:c3p0:0.9.1.2" />
+          <element id="library" level="project" name="com.mchange:mchange-commons-java:0.2.15" />
+          <element id="library" level="project" name="jstl:jstl:1.2" />
+        </element>
       </element>
     </root>
   </artifact>

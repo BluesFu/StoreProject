@@ -14,18 +14,17 @@
 <body>
 <%
     String name=request.getParameter("userName");
-    String password=request.getParameter("passWod");
+    String password=request.getParameter("passWord");
     String email=request.getParameter("email");
     UserDao dao =new UserDao();
     User user=new User();
 
-    user.setName(name);
+    user.setUsername(name);
     user.setPassword(password);
     user.setEmail(email);
 
-
     int num=dao.addUser(user);
-    //int num=dao.addUser(name,password,email);
+
    if (num>=1){
        response.sendRedirect("register_success.jsp");
    }else {

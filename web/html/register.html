@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
-<link type="text/css" rel="stylesheet" href="css/style.css" />
+<link type="text/css" rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 <div id="header" class="wrap">
@@ -11,7 +11,7 @@
 	   传习教育网上书城
 	</div>
     <div style="width:380px; height:50px; float:right; position:absolute; left:60%; top:2px; line-height:50px">
-	    <img src="images/cart.gif" style="margin-bottom:-4px" width="26" height="23">
+	    <img src="../images/cart.gif" style="margin-bottom:-4px" width="26" height="23">
 		  欢迎您： visited &nbsp;
                   <a href="myAccount.jsp">我的帐户</a>
 				| <a href="productCategory.jsp">商品分类</a> 
@@ -33,7 +33,7 @@
 			<li class="unpass">2.注册成功</li>
 		</ul>
 	</div>
-	<form method="post" action="doRegister.jsp"
+	<form method="post" action="../jsp/doRegister.jsp"
     >
 		<dl>
 			<dt>用 户 名：</dt>
@@ -42,12 +42,12 @@
 			<dt>密　　码：</dt>
 			<dd><input class="input-text" type="password" name="passWord" id="pwdId"/><span id="ptip"></span></dd>
 			<dt>确认密码：</dt>
-			<dd><input class="input-text" type="password" name="rePassWord" id="repid" /><span id="retip"> </span></dd>
+			<dd><input class="input-text" type="password" name="rePassWord" id="rpid" /><span id="retip"> </span></dd>
 			<dt>Email地址：</dt>
 			<dd>
             <input id="eid" class="input-text" type="text" name="email" /><span id="etip"></span></dd>
 			<dt></dt>
-			<dd class="button"><input class="input-reg" type="submit" name="register" value="" /></dd>
+			<dd class="button"><input class="input-reg" type="submit" name="register" value="" onclick="return checkLogin()"/></dd>
 		</dl>
 	</form>
 </div>
@@ -58,20 +58,22 @@
 <script language="JavaScript">
 	function checkLogin() {
         var name = document.getElementById("uid").value;
+        //alert(name);
         if (name == "") {
             document.getElementById("utip").innerHTML = "请输入用户名！";
             return false;
         }
         var NowNum = document.getElementById("pwdId").value.length;
         var passWorda = document.getElementById("pwdId").value;
-        if (NowNum < 4 || NowNum > 16) {
-            document.getElementById("ptid").innerHTML = "请输入`4-16位密码！"
-            return false;
-        }
 
-        var NowNumb=document.getElementById("repid").value.length;
-        var passWordb=document.getElementById("repid").values;
-        if (passWorda!=passwordb){
+        if (NowNum<4||NowNum>16){
+            document.getElementById("ptid").innerHTML+"请输入4-16位密码！";
+            return false;
+		}
+
+        var passWordb=document.getElementById("rpid").value;
+
+        if (passWorda!==passWordb){
             document.getElementById("retip").innerHTML="你输入的两次密码不一致！";
             return false;
 		}

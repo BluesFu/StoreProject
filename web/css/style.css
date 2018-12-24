@@ -83,7 +83,7 @@ a:hover, a:active { color:#03F; text-decoration:underline; }
 #content .bookList .button .input-btn { border:none; background:url(../images/button_shop.gif); width:100px; height:22px; }
 #content .bookList .button .input-chart { border:none; background:url(../images/button_chart.png); width:128px; height:36px; }
 #content .orderList td { font-size:12px; border:1px solid #e1e1e1; padding:10px 0; }
-#content .orderList td.thumb img { border:1px solid #e1e1e1; }
+#content .orderList td.thumb img { border:1px solid #e1e1e1;  }
 
 #content .page-spliter { text-align:center; font-size:14px; padding-top:20px; }
 #content .page-spliter * { margin:0 5px; }
@@ -91,3 +91,7 @@ a:hover, a:active { color:#03F; text-decoration:underline; }
 
 #content .success { margin:50px auto; width:550px; font-size:14px; }
 #content .success .information { padding:60px 0; line-height:40px; color:#f00; }
+
+
+
+

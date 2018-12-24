@@ -1,20 +1,22 @@
 package top.bluesfu.model;
 
 
+
+
 /**
  * @author fsy
  */
 public class User {
-    private String id;
-    private String name;
+    private int id;
+    private String username;
     private String password;
     private String email;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
-    public String getName(){
-        return name;
+    public String getUsername(){
+        return username;
     }
     public String getPassword(){
         return password;
@@ -24,12 +26,12 @@ public class User {
     }
 
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setPassword(String password) {
