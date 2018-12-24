@@ -3,6 +3,7 @@ package top.bluesfu.dao;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
+import top.bluesfu.bean.PageBean;
 import top.bluesfu.model.Product;
 import top.bluesfu.utils.DataSourceUtils;
 
@@ -26,29 +27,42 @@ public class ProductDao {
         return num;
     }
 
-    public List findAll(){
+    public void findAll(PageBean<Product> productPageBean){
+        int totalCount=this.getTotalCount();
+        productPageBean.setTotalCount(totalCount);
+
+        if (productPageBean.getCurrentPage()<0){
+            productPageBean.setCurrentPage(1);
+        }else if (productPageBean.getCurrentPage()>productPageBean.getTotalCount()){
+            productPageBean.setCurrentPage(productPageBean.getTotaPage());
+        }
+
+        int currentPage=productPageBean.getCurrentPage();
+        int index=(currentPage-1)*productPageBean.getPageCount();
+        int count=productPageBean.getPageCount();
+
         QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
-        String sql="SELECT * FROM products";
+        String sql="SELECT * FROM products LIMIT ?,?";
         try {
-            List list=qr.query(sql,new BeanListHandler<Product>(Product.class));
-            return list;
+            List<Product> pageData=qr.query(sql,new BeanListHandler<Product>(Product.class),index,count);
+            productPageBean.setPageData(pageData);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-           return null;
-    }
-      public int countProduct(){
-           QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
-           String sql="SELECT COUNT(*) FROM products";
-           int count=0;
-          try {
-                  count=qr.query(sql,new ScalarHandler<Integer>());
-          } catch (SQLException e) {
-              e.printStackTrace();
-          }
-          return count;
-      }
 
+    }
+
+    public int getTotalCount(){
+        String sql="SELCET COUNT(*) FROM products";
+
+        QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
+        try {
+            Long count=qr.query(sql,new ScalarHandler<Long>());
+            return count.intValue();
+        } catch (SQLException e) {
+           throw new RuntimeException(e);
+        }
+    }
 
 
 }

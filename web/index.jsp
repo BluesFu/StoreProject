@@ -72,19 +72,17 @@
 
 				<%
 					}
+
 				%>
 			</table>
 
 
 			<div class="page-spliter">
-				<a href="#">&lt;</a>
-				<a href="#">首页</a>
+				<a href="${pageContext.request.contextPath}/index.jsp?currentPage=${requestScope.pageBean.currentPage-1}">&lt;</a>
+				<a href="${pageContext.request.contextPath}/index.jsp?currentPage=1">首页</a>
 				<span class="current">1</span>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#">4</a>
 				<span>...</span>
-				<a href="#">尾页</a>
+				<a href="${pageContext.request.contextPath}/index.jsp?">尾页</a>
 				<a href="#">&gt;</a>
 			</div>
 			<div class="button"><input class="input-btn" type="submit" name="submit" value="" /></div>

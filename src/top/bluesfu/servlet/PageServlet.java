@@ -1,5 +1,6 @@
 package top.bluesfu.servlet;
 
+import top.bluesfu.bean.PageBean;
 import top.bluesfu.dao.ProductDao;
 import top.bluesfu.model.Product;
 
@@ -8,37 +9,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * @author fsy
  */
 public class PageServlet extends HttpServlet {
+    private static final long serialVersionUID=1L;
+
+    private ProductDao productDao=new ProductDao();
+    private String uri;
     @Override
-    protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+         try {
+             String currPage = request.getParameter("currentPage");
 
-        ProductDao productDao=new ProductDao();
-           int pageSize=10;
-           int pageNow=0;
-           int rowCount=productDao.countProduct();
+             if (currPage == null || "".equals(currPage.trim())) {
+                 currPage = "1";
+             }
+             int currentPage = Integer.parseInt(currPage);
 
-           String getPageNow=httpServletRequest.getParameter("pageNow");
-           if (getPageNow!=null){
-               pageNow=Integer.parseInt(getPageNow);
-           }
-           if (pageNow<=1){
-               pageNow=1;
-           }
-           int pageCount =(rowCount%pageSize==0)?(rowCount/pageNow):(rowCount/pageSize)+1;
-           if (pageNow>pageCount){
-               pageNow=pageCount;
-           }
+             PageBean<Product> productPageBean = new PageBean<Product>();
+             productPageBean.setCurrentPage(currentPage);
+             productDao.findAll(productPageBean);
 
+             request.setAttribute("productPageBean", productPageBean);
+             uri = "/index.jsp";
+         }catch (Exception e){
+             e.printStackTrace();
+             uri="/html/error.html";
+         }
+         request.getRequestDispatcher(uri).forward(request,response);
 
-
-        List<Product> productList=productDao.findAll();
-        httpServletRequest.setAttribute("productList",productList);
-        httpServletRequest.getRequestDispatcher("index.jsp").forward(httpServletRequest,httpServletResponse);
     }
 
     @Override
