@@ -2,6 +2,7 @@ package top.bluesfu.dao;
 
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import top.bluesfu.model.User;
 import top.bluesfu.utils.DataSourceUtils;
@@ -41,6 +42,16 @@ public class UserDao {
         return null;
     }
 
+    public User findUserByNameAndPwd(String username,String password){
+        QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
+        String sql="SELECT * FROM user WHERE username="+username+"AND password="+password;
+        try {
+            return qr.query(sql,new BeanHandler<User>(User.class));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+          return null;
+    }
     
 
 

@@ -1,7 +1,7 @@
 <html>
-
+<%@ page contentType="text/html; charset=UTF-8"%>
 <head>
-    <meta charset="UTF-8">
+
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
@@ -37,7 +37,7 @@
         </div>
 
         <div class="remember-me">
-            <input type="checkbox">
+            <input   name="rememberpwd" type="checkbox">
             <span style="color: #DDD">记住密码</span>
         </div>
 
@@ -47,7 +47,7 @@
 
     <div class="register">
         你还没有账号?
-        <a href="register.html"><button id="register-link">注册</button></a>
+        <a href="../html/register.html"><button id="register-link">注册</button></a>
     </div>
 
     <div class="return">

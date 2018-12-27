@@ -18,7 +18,7 @@ public class EncodingFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)throws IOException,ServletException{
         request.setCharacterEncoding(this.charSet);
-        System.out.println("filter启动");
+        System.out.println("Encodingfilter启动");
          chain.doFilter(request,response);
     }
 

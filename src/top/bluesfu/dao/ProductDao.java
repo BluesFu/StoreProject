@@ -16,7 +16,7 @@ import java.util.List;
 public class ProductDao {
     public int addProduct(Product product){
         QueryRunner qr=new QueryRunner(DataSourceUtils.getDataSource());
-        String sql="insert into products(name,price,category,pnum,imgurl,description)";
+        String sql="insert into products(name,price,category,pnum,imgurl,description)"+"values(?,?,?,?,?,?)";
    int num=0;
    Object[] params={product.getName(),product.getPrice(),product.getCategory(),product.getPnum(),product.getImgurl(),product.getDescription()};
         try {
